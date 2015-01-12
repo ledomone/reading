@@ -39,6 +39,7 @@ INSTALLED_APPS = (
 
     #############################
     'users',
+    'logbook',
 )
 
 MIDDLEWARE_CLASSES = (
