@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+My readed books:
+<ol>
+    {% for book in book_list %}
+    <li>{{ book.author }} "{{ book.title }}", finished: {{ book.date }} , pages: {{ book.pages }}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
