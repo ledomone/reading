@@ -2,9 +2,15 @@
 
 {% block content %}
 My readed books:
+{% if user.is_authenticated %}
 <ol>
     {% for book in book_list %}
     <li>{{ book.author }} "{{ book.title }}", finished: {{ book.date }} , pages: {{ book.pages }}</li>
     {% endfor %}
 </ol>
+{% else %}
+<p>
+    You have to log in to see your readed books.
+</p>
+{% endif %}
 {% endblock %}
