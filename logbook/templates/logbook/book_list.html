@@ -5,7 +5,7 @@ My readed books:
 {% if user.is_authenticated %}
 <ol>
     {% for book in book_list %}
-    <li>{{ book.author }} "{{ book.title }}", finished: {{ book.date }} , pages: {{ book.pages }}</li>
+    <li>{{ book.author }} <a href="{% url 'book-detail' book.id %}"> "{{ book.title }}"</a>, finished: {{ book.date }} , pages: {{ book.pages }}</li>
     {% endfor %}
 </ol>
 {% else %}
