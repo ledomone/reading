@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Book
 
 
@@ -22,3 +22,4 @@ class BookListView(ListView):
 class BookView(DetailView):
     model = Book
     template_name = 'logbook/book_detail.html'
+

@@ -9,7 +9,7 @@
      <a href="{% url 'main-page'%}">Main page</a>
     {% if user.is_authenticated %} {% load account %}
 
-    <a href="{% url 'book-list' %}">My books</a>
+    <a href="{% url 'logbook:book-list' %}">My books</a>
     <a href="{% url 'account_logout' %}">Log out {% user_display user %} </a>
     {% else %}
     <a href="{% url 'account_login' %}">Log in</a>
