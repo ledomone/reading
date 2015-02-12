@@ -8,6 +8,8 @@ My readed books:
     <li>{{ book.author }} <a href="{% url 'logbook:book-detail' book.id %}"> "{{ book.title }}"</a>, finished: {{ book.date }} , pages: {{ book.pages }}</li>
     {% endfor %}
 </ol>
+
+<p>You can <a href="{% url 'logbook:book-add' %}">add</a> another one.</p>
 {% else %}
 <p>
     You have to log in to see your readed books.
