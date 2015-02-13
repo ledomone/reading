@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.core.urlresolvers import reverse
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView
 from .models import Book
 
 
@@ -32,3 +32,8 @@ class BookCreate(CreateView):
 
     def get_success_url(self):
         return reverse('logbook:book-list')
+
+
+class BookDelete(DeleteView):
+    model = Book
+    success_url = reverse_lazy('logbook:book-list')

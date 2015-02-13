@@ -6,10 +6,12 @@
 <p>Pages: {{ object.pages }}</p>
 <p>finished: {{ book.date }} </p>
 
-<p><a href="{% url 'logbook:book-del' book.id %}">Delete!</a> </p>
+<form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object.title }}"?</p>
+    <input type="submit" value="Confirm" />
+</form>
 {% endblock %}
 
 {% block title %}
 {{ object.title }}
 {% endblock%}
-
