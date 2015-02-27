@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView
 from .models import Book
@@ -16,7 +18,11 @@ class BookListView(ListView):
 
     def get_queryset(self):
         qs = super(BookListView, self).get_queryset()
-        return qs.filter(who=self.request.user.id)
+        return qs.filter(who=self.request.user)
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(BookListView, self).dispatch(request, args, kwargs)
 
 
 class BookView(DetailView):
@@ -27,11 +33,15 @@ class BookView(DetailView):
 class BookCreate(CreateView):
     model = Book
     template_name_suffix = '_create_form'
-    fields = ['title', 'author', 'pages', 'date', 'who']
+    fields = ['title', 'author', 'pages', 'date']
     # success_url = '/books'
 
     def get_success_url(self):
         return reverse('logbook:book-list')
+
+    def form_valid(self, form):
+        form.instance.who = self.request.user
+        return super(BookCreate, self).form_valid(form)
 
 
 class BookDelete(DeleteView):
