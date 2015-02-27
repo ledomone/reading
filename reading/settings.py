@@ -130,7 +130,7 @@ class Production(Configuration):
 
     SITE_ID = 1
 
-    LOGIN_URL = "main-page"
+    LOGIN_URL = '/accounts/login/'
 
     LOGIN_REDIRECT_URL = "main-page"
 
