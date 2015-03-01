@@ -3,6 +3,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView
+from django.db.models import Sum
 from .models import Book
 
 
@@ -19,6 +20,11 @@ class BookListView(ListView):
     def get_queryset(self):
         qs = super(BookListView, self).get_queryset()
         return qs.filter(who=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super(BookListView, self).get_context_data(**kwargs)
+        context['total'] = Book.objects.filter(who=self.request.user).aggregate(sum=Sum('pages'))
+        return context
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):

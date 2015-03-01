@@ -7,11 +7,11 @@ My readed books:
     {% for book in book_list %}
     <li>{{ book.author }} <a href="{% url 'logbook:book-detail' book.id %}"> "{{ book.title }}"</a>, finished: {{ book.date }} , pages: {{ book.pages }}
     </li>
-
     {% empty %}
     Oh, no! You don't log any readed books. :-( <br />
     Please do it immediately by clicking the link below.
     {% endfor %}
+    <p>Total: {{ total.sum }} pages</p>
 </ol>
 
 <p>You can <a href="{% url 'logbook:book-add' %}">add new book</a> you have read.</p>
