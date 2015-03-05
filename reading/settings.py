@@ -42,6 +42,7 @@ class Production(Configuration):
         'allauth',
         'allauth.account',
         'allauth.socialaccount',
+        'bootstrap3',
         #############################
 
         'django.contrib.admin',
@@ -100,7 +101,7 @@ class Production(Configuration):
     AUTH_USER_MODEL = 'users.MyUser'
 
     TEMPLATE_DIRS = {
-        os.path.join(BASE_DIR, 'templates'),
+        os.path.join(BASE_DIR, 'templates/reading'),
     }
 
     TEMPLATE_CONTEXT_PROCESSORS = (
