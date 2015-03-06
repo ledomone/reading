@@ -4,17 +4,23 @@
 {% block bootstrap3_title %} My readings... {% endblock %}
 
 {% block bootstrap3_content %}
-<div class="page-header">
-     <a href="{% url 'main-page'%}">Main page</a>
+<div class="container">
+<div class="header">
+    <nav class="navbar navbar-fixed-top">
+        <ul class="nav nav-pills pull-right">
+    <li role="presentation"> <a href="{% url 'main-page'%}">Main page</a> </li>
     {% if user.is_authenticated %} {% load account %}
-
-    <a href="{% url 'logbook:book-list' %}">My books</a>
-    <a href="{% url 'account_logout' %}">Log out {% user_display user %} </a>
+    <li role="presentation"> <a href="{% url 'logbook:book-list' %}">My books</a></li>
+    <li role="presentation"> <a href="{% url 'account_logout' %}">Log out {% user_display user %} </a></li>
     {% else %}
-    <a href="{% url 'account_login' %}">Log in</a>
+    <li role="presentation"> <a href="{% url 'account_login' %}">Log in</a></li>
     {% endif %}
+        </ul>
+    </nav>
+    <h3 class="text-muted">The Reading project <span class="badge">beta</span></h3>
 </div>
 
 {% block content %}
 {% endblock %}
+</div><!-- /container -->
 {% endblock %}

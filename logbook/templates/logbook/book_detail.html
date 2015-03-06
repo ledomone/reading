@@ -6,7 +6,7 @@
 <p>Pages: {{ object.pages }}</p>
 <p>finished: {{ book.date }} </p>
 
-<p><a href="{% url 'logbook:book-del' book.id %}">Delete!</a> </p>
+<p><a href="{% url 'logbook:book-del' book.id %}" class="btn btn-danger">Delete!</a> </p>
 {% endblock %}
 
 {% block title %}

@@ -5,14 +5,15 @@ The reading project - main page
 {% endblock %}
 
 {% block content %}
-<h1>The Reading project</h1>
-<h2>The goal is to read 10 000 pages / year</h2>
+<div class="container">
+<p>The goal is to <strong>read 10 000 pages</strong> / year</p>
 <p>
     This site is to motivate you to read more books. Enter every book you read through one year and see if you reach the goal.
 </p>
 <p>
     Now you can see a list of all your <a href="{% url 'logbook:book-list' %}">readed books</a>.
 </p>
+</div>
 {% endblock %}
 
 
