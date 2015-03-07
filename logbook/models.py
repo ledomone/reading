@@ -8,6 +8,6 @@ class Book(models.Model):
     """
     author = models.CharField(max_length=150, null=True)
     title = models.CharField(max_length=250, null=True)
-    date = models.DateField(null=True)
+    date = models.DateField(null=True, help_text="Date of completion of reading")
     pages = models.IntegerField(null=True)
     who = models.ForeignKey(settings.AUTH_USER_MODEL)

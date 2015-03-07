@@ -1,8 +1,9 @@
 body {
-  padding-top: 50px;
+    padding-top: 50px;
 }
+
 .starter-template {
-  padding: 40px 15px;
-  text-align: left;
+    padding: 40px 15px;
+    text-align: left;
     font-size: large;
 }
