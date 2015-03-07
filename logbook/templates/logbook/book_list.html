@@ -1,18 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h4>My readed books:</h4>
+<h3>My readed books:</h3>
+
+
 {% if user.is_authenticated %}
-<ol class="list-group">
-    {% for book in book_list %}
-    <li>{{ book.author }} <a href="{% url 'logbook:book-detail' book.id %}"> "{{ book.title }}"</a>, finished: {{ book.date }} , pages: {{ book.pages }}
-    </li>
-    {% empty %}
-    Oh, no! You don't log any readed books. :-( <br />
-    Please do it immediately by clicking the link below.
-    {% endfor %}
-    <p>Total: {{ total.sum }} pages</p>
-</ol>
+<div class="col-md-6">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Pages</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in book_list %}
+        <tr>
+            <td>{{ forloop.counter }}.</td>
+            <td>{{ book.author }}</td>
+            <td><a href="{% url 'logbook:book-detail' book.id %}"> "{{ book.title }}"</a></td>
+            <td>{{ book.date }}</td>
+            <td>{{ book.pages }}</td>
+        </tr>
+        {% empty %}
+        Oh, no! You don't log any readed books. :-( <br/>
+        Please do it immediately by clicking the link below.
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+     <h3>Total: {{ total.sum }} pages</h3>
 
 <p>You can <a href="{% url 'logbook:book-add' %}">add new book</a> you have read.</p>
 {% else %}
@@ -20,4 +42,5 @@
     You have to log in to see your readed books.
 </p>
 {% endif %}
+
 {% endblock %}
