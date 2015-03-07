@@ -1,6 +1,7 @@
 defusedxml==0.4.1
 Django==1.7.5
 django-allauth==0.19.1
+django-bootstrap3==5.1.1
 django-configurations==0.8
 ipython==2.3.1
 oauthlib==0.7.2
