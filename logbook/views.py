@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, DeleteView
 from django.db.models import Sum
 from .models import Book
+from .forms import BookCreateForm
 
 
 class MainPageView(TemplateView):
@@ -48,6 +49,7 @@ class BookCreate(CreateView):
     model = Book
     template_name_suffix = '_create_form'
     fields = ['title', 'author', 'pages', 'date']
+    form_class = BookCreateForm
 
     def get_success_url(self):
         return reverse('logbook:book-list')
