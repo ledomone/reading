@@ -22,13 +22,12 @@
                 {% if user.is_authenticated %} {% load account %}
 
                 <li><a href="{% url 'logbook:book-list' %}">My books</a> </li>
-                <li><a href="{% url 'account_logout' %}">Log out {% user_display user %}</a></li>
+                <li><a href="{% url 'account_logout' %}">Log out [{% user_display user %}]</a></li>
                      {% else %}
                 <li><a href="{% url 'account_login' %}">Log in</a></li>
                 {% endif %}
             </ul>
-        </div>
-        <!--/.nav-collapse -->
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
 
@@ -37,7 +36,6 @@
     <div class="starter-template">
         {% block content %}
         {% endblock %}
-    </div>
-    <!-- /starter-template -->
+    </div><!-- /starter-template -->
 </div><!-- /container -->
 {% endblock %}
