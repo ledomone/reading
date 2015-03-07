@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-My readed books:
+<h4>My readed books:</h4>
 {% if user.is_authenticated %}
 <ol class="list-group">
     {% for book in book_list %}
