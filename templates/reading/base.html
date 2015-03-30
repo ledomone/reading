@@ -4,7 +4,7 @@
 {% block bootstrap3_title %} My readings... {% endblock %}
 
 {% block bootstrap3_content %}
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -21,10 +21,10 @@
                 <!--<li class="active"><a href="{% url 'main-page'%}">Home</a></li>-->
                 {% if user.is_authenticated %} {% load account %}
 
-                <li><a href="{% url 'logbook:book-list' %}">My books</a> </li>
-                <li><a href="{% url 'account_logout' %}">Log out [{% user_display user %}]</a></li>
+                <li><a href="{% url 'logbook:book-list' %}"><span class="glyphicon glyphicon-book"></span> My books</a> </li>
+                <li><a href="{% url 'account_logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log out [{% user_display user %}]</a></li>
                      {% else %}
-                <li><a href="{% url 'account_login' %}">Log in</a></li>
+                <li><a href="{% url 'account_login' %}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
                 {% endif %}
             </ul>
         </div><!--/.nav-collapse -->
